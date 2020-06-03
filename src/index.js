@@ -3,7 +3,7 @@ const moment = require('moment');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-var next_allowed_reply = moment();
+var default_message_cooldown = moment();
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -15,10 +15,10 @@ client.on('message', msg => {
             msg.reply('pong');
             break;
         default:
-            if (moment() > next_allowed_reply
+            if (moment() > default_message_cooldown
             && common.isHermit(msg.content) === true) {
                 msg.reply('let\'s all be hermits!');
-                next_allowed_reply = next_allowed_reply.add(10, 'minutes'); 
+                default_message_cooldown = moment().add(10, 'minutes');  
             }
     } 
 });
