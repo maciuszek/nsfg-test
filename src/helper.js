@@ -12,7 +12,13 @@ module.exports = {
         || content.includes('patio')
         || content.includes('bbq')
         || content.includes('party')
-        || content.includes('camping')) {
+        || content.includes('camp')
+        || content.includes('walk')
+        || content.includes('stroll')
+        || content.includes('jog')
+        || content.includes('cottage')
+        || content.includes('dacha')
+        || content.includes('lodge')) {
             return true;
         }
         return false;
